@@ -1,3 +1,5 @@
+package Pilha;
+
 public class PilhaArray implements Pilha{
     private int capacidade;
     private Object[] a;
