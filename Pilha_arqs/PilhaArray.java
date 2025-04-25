@@ -37,9 +37,18 @@ public class PilhaArray implements Pilha{
         return r;
     }
 
-    public object top() throws PilhaVaziaExcecao{
+    public Object top() throws PilhaVaziaExcecao{
         if (isEmpty()){
-            
+            throw new PilhaVaziaExcecao("A pilha está vazia.");
         }
+        return a[t];
+    }
+
+    public boolean isEmpty(){
+        return t == -1;
+    }
+
+    public int size(){
+        return t + 1;
     }
 }

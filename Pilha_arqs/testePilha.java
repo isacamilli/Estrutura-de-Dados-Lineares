@@ -21,10 +21,12 @@ public class testePilha {
 		  System.out.println(f);		  
 		  pp.push(new Integer(f));
 		}
+		System.out.println(b);
 		System.out.println("retirando");
 		for(int f=0;f<10;f++){
 			  System.out.print(f);
 			  System.out.println(" - "+pp.pop());
 		}
+		
 	}
 }
