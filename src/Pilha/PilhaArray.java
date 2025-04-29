@@ -5,6 +5,7 @@ public class PilhaArray implements Pilha{
     private Object[] a;
     private int t;
     private int FC;
+    
     public PilhaArray(int capacidade, int crescimento){
         this.capacidade = capacidade;
         t = -1;

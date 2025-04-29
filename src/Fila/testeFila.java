@@ -4,7 +4,7 @@ public class testeFila {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Fila f=new Fila(1,0); //criando fila tamnho 1 e duplicação
+		FilaArray f=new FilaArray(1,0); //criando fila tamnho 1 e duplicação
 		f.enqueue(1);
 		f.enqueue(2);
 		f.enqueue(3);
