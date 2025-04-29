@@ -1,10 +1,40 @@
 package Pilha.Exercicios;
 import Pilha.PilhaArray;
+import java.util.Scanner;
 
 public class Ex1{
     public static void main(String[] args){
-        PilhaArray p = new PilhaArray(10,0);
 
-        p.push(10);
+        Scanner scanner = new Scanner(System.in);
+        PilhaArray p = new PilhaArray(10,0);
+        int num = 1;
+        int x;
+
+        while (num != 0) {
+
+            System.out.println("\nEscolha um das opções apresentadas:");
+            System.out.println("\n1 - Inserir número\n2 - Remover número");
+            System.out.println("3 - Mostrar conteudo dentro da pilha\n0 - Fechar o programa\n");
+            num = scanner.nextInt();
+
+            switch (num) {
+                case 1:
+                    System.out.print("Escolha o número a inserir: ");
+                    x = scanner.nextInt();
+                    p.push(x);
+                    System.out.println("\nNúmero inserido com sucesso");
+
+                    break;
+            
+                default:
+                    System.out.println("Opção inválida");
+                    break;
+            }
+        }
+
+        System.out.println("\nFechando o sistema...");
+
+        scanner.close();
+
     }
 }
