@@ -25,6 +25,22 @@ public class Ex1{
                     System.out.println("\nNúmero inserido com sucesso");
 
                     break;
+
+                case 2:
+                    Object obj;
+                    obj = p.pop();
+                    System.out.println(obj +" extraido com sucesso");
+
+                    break;
+
+                case 3:
+
+                    System.out.println("\nObjetos presentes na pilha:");
+                    for (int i=0;i < p.size();i++){
+                        System.out.println(p[i]);
+                    }
+
+                    break;
             
                 default:
                     System.out.println("Opção inválida");
