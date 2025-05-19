@@ -60,6 +60,6 @@ public class FilaArray implements Fila {
     }
 
     public int size(){
-        return (capacidade - comeco + fim) % capacidade;
+        return (capacidade + fim - comeco) % capacidade;
     }
 }
