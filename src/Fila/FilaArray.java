@@ -30,7 +30,7 @@ public class FilaArray implements Fila {
     
             for (int f = 0;f < size();f++){
                 b[f] = a[i];
-                i = (i+1) % capacidade;
+                i = (i+1) % a.length;
             }
             a = b;
             comeco = 0;
@@ -60,6 +60,6 @@ public class FilaArray implements Fila {
     }
 
     public int size(){
-        return (capacidade + fim - comeco) % capacidade;
+        return (capacidade -comeco + fim) % capacidade;
     }
 }
