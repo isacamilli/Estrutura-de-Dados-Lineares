@@ -16,7 +16,7 @@ public class DequeArray implements Deque{
     }
 
     public void inserirInicio(Object o){
-        if (size() >= capacidade){
+        if (size() >= capacidade - 1){
             if(FC <= 0) capacidade *= 2;
             else capacidade += FC;
 
@@ -42,7 +42,7 @@ public class DequeArray implements Deque{
     }
 
     public void inserirFim(Object o){
-        if (size() >= capacidade){
+        if (size() >= capacidade - 1){
             if (FC <= 0) capacidade *= 2;
             else capacidade += FC;
 
@@ -70,5 +70,17 @@ public class DequeArray implements Deque{
     public int size(){
         int tamanho = (capacidade - inicio + fim)%capacidade;
         return tamanho;
+    }
+
+    public Object first(){
+        return inicio;
+    }
+
+    public Object last(){
+        return a[fim-1];
+    }
+
+    public boolean isEmpty(){
+        return inicio == fim;
     }
 }
