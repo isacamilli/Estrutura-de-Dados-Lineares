@@ -23,20 +23,39 @@ public class VetorArray implements Vetor{
         return ref;
     }
 
+    // public void insertAtRank(int p, Object o){
+    //     if (n >= capacidade-1){
+    //         if (FC <= 0) capacidade *= 2;
+    //         else capacidade += FC;
+    //         Object[] b = new Object[capacidade];
+
+    //         for (int i=0;i < n; i++){
+    //             b[i] = a[i];
+    //         }
+
+    //         a = b;
+    //     }
+    //     for (int i = n-1;i > p; i--){
+    //         a[i+1] = a[i];
+    //     }
+    //     a[p] = o;
+    //     n++;
+    // }
+
     public void insertAtRank(int p, Object o){
-        if (n >= capacidade){
+        if (n >= capacidade) {
             if (FC <= 0) capacidade *= 2;
             else capacidade += FC;
             Object[] b = new Object[capacidade];
 
-            for (int i=0;i < n; i++){
-                b[i] = a[i];
+            for (int i = 0; i < n; i++){
+                b[i]= a[i];
             }
 
             a = b;
         }
-        for (int i = n-1;i > p; i--){
-            a[i+1] = a[i];
+        for (int i = n;i > p;i--){
+            a[i] = a[i-1];
         }
         a[p] = o;
         n++;

@@ -8,11 +8,10 @@ public class FilaArray implements Fila {
     private int FC;
 
     public FilaArray(int volume,int cresc) {
-        this.capacidade = volume;
+        capacidade = volume;
         comeco = 0;
         fim = 0;
         FC = cresc;
-        if (cresc <= 0) FC = 0;
         a = new Object[capacidade];
     }
 
@@ -33,8 +32,8 @@ public class FilaArray implements Fila {
                 i = (i+1) % a.length;
             }
             a = b;
-            comeco = 0;
             fim = size();
+            comeco = 0;
         }
 
         a[fim] = o;
