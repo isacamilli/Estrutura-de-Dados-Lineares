@@ -13,7 +13,7 @@ public class testeFila {
             System.out.println("3 - Mostrar conteudo dentro da pilha\n0 - Fechar o programa\n");
 			
 			switch (num) {
-				case value:
+				case 0:
 					
 					break;
 			
