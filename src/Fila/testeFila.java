@@ -4,7 +4,7 @@ public class testeFila {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		FilaArray f=new FilaArray(10,0); //criando fila tamnho 1 e duplicação
+		FilaArray f =new FilaArray(10,0); //criando fila tamnho 1 e duplicação
 		int num = 1;
 		while (num != 0) {
 
@@ -14,7 +14,7 @@ public class testeFila {
 			
 			switch (num) {
 				case 0:
-					
+					f.enqueue(3);
 					break;
 			
 				default:
