@@ -59,7 +59,7 @@ public class Lista {
 
     public void swapElement(No n, No n2){
         Object ref = n.getElemento();
-        n.setElemento(n2);
+        n.setElemento(n2.getElemento());
         n2.setElemento(ref);
     }
 

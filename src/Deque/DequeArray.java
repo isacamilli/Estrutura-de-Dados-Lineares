@@ -73,7 +73,7 @@ public class DequeArray implements Deque{
     }
 
     public Object first(){
-        return inicio;
+        return a[inicio];
     }
 
     public Object last(){

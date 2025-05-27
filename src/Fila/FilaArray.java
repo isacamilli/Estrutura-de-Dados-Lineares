@@ -17,6 +17,8 @@ public class FilaArray implements Fila {
 
     public void enqueue(Object o){
         if (size() >= capacidade - 1) {
+
+            int cap2 = capacidade;
             if (FC <= 0) {
                 capacidade *= 2;
             }
@@ -29,7 +31,7 @@ public class FilaArray implements Fila {
     
             for (int f = 0;f < size();f++){
                 b[f] = a[i];
-                i = (i+1) % a.length;
+                i = (i+1) % cap2;
             }
             a = b;
             fim = size();

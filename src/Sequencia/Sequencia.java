@@ -66,13 +66,8 @@ public class Sequencia {
 
     public void insertAtRank(int r, Object o){
         No ref = atRank(r);
-        No novoNo = new No(o);
 
-        novoNo.setAntes(ref.getAntes());
-        novoNo.setDepois(ref);
-
-        ref.getAntes().setDepois(novoNo);
-        ref.setAntes(novoNo);
+        insertBefore(ref, o);
 
         tamanho++;
     }
@@ -83,5 +78,46 @@ public class Sequencia {
 
     public No last(){
         return fim.getAntes();
+    }
+
+    public No before(No n){
+        return n.getAntes();
+    }
+
+    public No after(No n){
+        return n.getDepois();
+    }
+
+    public Object replaceElements(No n, Object o){
+        Object x = n.getElemento();
+        n.setElemento(o);
+
+        return x;
+    }
+
+    public void swapElements(No n, No n2){
+        Object x = n.getElemento();
+        n.setElemento(n2.getElemento());
+
+        n2.setElemento(x);
+    }
+
+    public void insertBefore(No n, Object o){
+        No novoNo = new No(o);
+
+        novoNo.setDepois(n);
+        novoNo.setAntes(n.getAntes());
+
+        n.getAntes().setDepois(novoNo);
+        n.setAntes(novoNo);
+    }
+
+    public void insertAfter(No n, Object o){
+        No novoNo = new No(o);
+
+        novoNo.setAntes(n);
+        novoNo.setDepois(n.getDepois());
+        n.getDepois().setAntes(novoNo);
+        n.setDepois(novoNo);
     }
 }
