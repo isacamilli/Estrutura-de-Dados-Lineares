@@ -81,18 +81,86 @@ public class ArvoreBin {
         if (isInternal(n)) inOrder(n.getRight(), lista);
     }
 
-    private int altura(No n){
-        if (isExternal(n)){
-            return 0;
-        }
+    public No treeSearch(Object k, No v){
+        if (isExternal(v)) return v;
 
-        int h = 0;
-
-        for(No filho: n.getChildren()){
-            h = Math.max(h, altura(filho));
-        }
-        return 1 + h;
+        if (k < v.key) return treeSearch(k, v.getLeft());
+        else if (k > v.key) return treeSearch(k, v.getRight());
+        else if (k == v.key) return v;
     }
+
+    public void insert(int key) {
+        root = insertRec(root, key);
+    }
+
+    private Node insertRec(Node node, int key) {
+        if (node == null)
+            return new Node(key);
+        if (key < node.key)
+            node.left = insertRec(node.left, key);
+        else if (key > node.key)
+            node.right = insertRec(node.right, key);
+        return node;
+    }
+
+    public void delete(int key) {
+        root = deleteRec(root, key);
+    }
+
+    private Node deleteRec(Node node, int key) {
+        if (node == null)
+            return null;
+
+        if (key < node.key) {
+            node.left = deleteRec(node.left, key);
+        } else if (key > node.key) {
+            node.right = deleteRec(node.right, key);
+        } else {
+            // Nó encontrado
+            // Caso 1: sem filhos
+            if (node.left == null && node.right == null)
+                return null;
+
+            // Caso 2: apenas um filho
+            if (node.left == null)
+                return node.right;
+            if (node.right == null)
+                return node.left;
+
+            // Caso 3: dois filhos
+            // Substituir pelo menor valor da subárvore direita
+            node.key = minValue(node.right);
+            node.right = deleteRec(node.right, node.key);
+        }
+
+        return node;
+    }
+
+    private int minValue(Node node) {
+        int min = node.key;
+        while (node.left != null) {
+            node = node.left;
+            min = node.key;
+        }
+        return min;
+    }
+
+    public int altura() {
+        return alturaRec(root);
+    }
+
+    // Método recursivo para calcular altura a partir de um nó
+    private int alturaRec(Node node) {
+        if (node == null) {
+            return -1;  // árvore vazia tem altura -1
+        }
+
+        int alturaEsquerda = alturaRec(node.left);
+        int alturaDireita = alturaRec(node.right);
+
+        return 1 + Math.max(alturaEsquerda, alturaDireita);
+    }
+    
 
     // Início classe No
 
